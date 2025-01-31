@@ -1,0 +1,71 @@
+/* General styling */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* Submission container */
+.submission-container {
+    text-align: center;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    max-width: 500px;
+    width: 90%;
+}
+
+.submission-container h1 {
+    color: #4a90e2;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.submission-container p {
+    color: #555555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Back link button styling */
+.back-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #357abd;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .submission-container {
+        padding: 20px;
+    }
+
+    .submission-container h1 {
+        font-size: 24px;
+    }
+
+    .submission-container p {
+        font-size: 14px;
+    }
+}

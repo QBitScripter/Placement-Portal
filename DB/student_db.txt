@@ -1,0 +1,149 @@
+CREATE TABLE students (
+    id VARCHAR(100) PRIMARY KEY,  
+    dept VARCHAR(50),              
+    name VARCHAR(255),
+    email VARCHAR(255),
+    roll_no VARCHAR(50),
+    mobile VARCHAR(20),
+    overall_sgpa DECIMAL(4,2),
+    password VARCHAR(255)
+);
+
+
+CREATE TABLE student_semesters (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id VARCHAR(100),
+    semester INT,
+    cgpa DECIMAL(4,2),
+    year INT,
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
+
+
+CREATE TABLE jobs (
+    job_id INT PRIMARY KEY AUTO_INCREMENT,
+    job_title VARCHAR(255),
+    company_name VARCHAR(100),
+    description TEXT,
+    min_cgpa DECIMAL(4,2),
+    application_deadline DATE
+);
+
+CREATE TABLE student_applications (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id VARCHAR(100),
+    job_id INT,
+    application_date DATE,
+    FOREIGN KEY (student_id) REFERENCES students(id),
+    FOREIGN KEY (job_id) REFERENCES jobs(job_id)
+);
+
+CREATE TABLE admin_requests (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    student_id VARCHAR(100),
+    issue TEXT,
+    email VARCHAR(255),
+    name VARCHAR(255),
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
+
+CREATE TABLE admins (
+    id INT PRIMARY KEY AUTO_INCREMENT,  -- Unique ID for each admin
+    username VARCHAR(100) NOT NULL,     -- Admin's username
+    email VARCHAR(255) NOT NULL UNIQUE,  -- Admin's email, must be unique
+    password VARCHAR(255) NOT NULL,      -- Plain text password
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Timestamp of account creation
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  -- Timestamp of last update
+);
+
+
+CREATE table job_exam_results(
+	student_id INT,
+	name VARCHAR(255), 
+	company_name VARCHAR(100),
+	qualified VARCHAR(20),
+	test_name VARCHAR(100),
+	date DATE,
+	job_id INT,
+	FOREIGN KEY (job_id) REFERENCES jobs(job_id),
+	FOREIGN KEY (student_id) REFERENCES students(id));
+
+--INSERT Values
+
+INSERT INTO students (id, dept, name, email, roll_no, mobile, overall_sgpa, password) VALUES
+('MCA2382001', 'MCA', 'Arjun Kumar', 'arjun.kumar@futuretech.edu.in', '2382001', '9876543210', 7.5, 'pass01'),
+('MCA2382002', 'MCA', 'Priya Sharma', 'priya.sharma@futuretech.edu.in', '2382002', '9988776655', 8.5, 'pass02'),
+('MCA2382003', 'MCA', 'Rahul Singh', 'rahul.singh@futuretech.edu.in', '2382003', '9123456789', 5.5, 'pass03'),
+('ECE2362001', 'ECE', 'Sneha Verma', 'sneha.verma@futuretech.edu.in', '2362001', '8765432109', 6.5, 'pass04'),
+('ECE2362002', 'ECE', 'Ravi Gupta', 'ravi.gupta@futuretech.edu.in', '2362002', '7654321098', 7.25, 'pass05'),
+('Mechanical2352001', 'Mechanical', 'Vikram Patel', 'vikram.patel@futuretech.edu.in', '2352001', '6543210987', 9.28, 'pass06'),
+('Mechanical2352002', 'Mechanical', 'Neha Yadav', 'neha.yadav@futuretech.edu.in', '2352002', '5432109876', 6.5, 'pass07'),
+('Mechanical2352003', 'Mechanical', 'Anjali Reddy', 'anjali.reddy@futuretech.edu.in', '2352003', '4321098765', 5.25, 'pass08'),
+('ECE2362003', 'ECE', 'Karan Joshi', 'karan.joshi@futuretech.edu.in', '2362003', '3210987654', 8.25, 'pass09'),
+('MCA2382004', 'MCA', 'Sanjay Mehta', 'sanjay.mehta@futuretech.edu.in', '2382004', '2109876543', 9.5, 'pass10');
+
+
+
+
+
+
+
+--insert into student_semesters
+INSERT INTO student_semesters (student_id, semester, cgpa, year) VALUES
+('MCA2382001', 1, 7.0, 2021),
+('MCA2382001', 2, 7.5, 2021),
+('MCA2382001', 3, 8.0, 2022),
+('MCA2382001', 4, 7.5, 2022),
+
+('MCA2382002', 1, 8.0, 2021),
+('MCA2382002', 2, 8.5, 2021),
+('MCA2382002', 3, 8.5, 2022),
+('MCA2382002', 4, 8.5, 2022),
+
+('MCA2382003', 1, 5.0, 2021),
+('MCA2382003', 2, 5.5, 2021),
+('MCA2382003', 3, 6.0, 2022),
+('MCA2382003', 4, 5.0, 2022),
+
+('ECE2362001', 1, 6.0, 2021),
+('ECE2362001', 2, 6.5, 2021),
+('ECE2362001', 3, 7.0, 2022),
+('ECE2362001', 4, 6.5, 2022),
+
+('ECE2362002', 1, 7.0, 2021),
+('ECE2362002', 2, 7.5, 2021),
+('ECE2362002', 3, 7.0, 2022),
+('ECE2362002', 4, 7.0, 2022),
+
+('Mechanical2352001', 1, 9.0, 2021),
+('Mechanical2352001', 2, 9.5, 2021),
+('Mechanical2352001', 3, 9.5, 2022),
+('Mechanical2352001', 4, 9.0, 2022),
+
+('Mechanical2352002', 1, 6.0, 2021),
+('Mechanical2352002', 2, 6.5, 2021),
+('Mechanical2352002', 3, 7.0, 2022),
+('Mechanical2352002', 4, 6.0, 2022),
+
+('Mechanical2352003', 1, 5.0, 2021),
+('Mechanical2352003', 2, 5.5, 2021),
+('Mechanical2352003', 3, 5.0, 2022),
+('Mechanical2352003', 4, 5.5, 2022),
+
+('ECE2362003', 1, 8.0, 2021),
+('ECE2362003', 2, 8.5, 2021),
+('ECE2362003', 3, 8.5, 2022),
+('ECE2362003', 4, 8.0, 2022),
+
+('MCA2382004', 1, 9.0, 2021),
+('MCA2382004', 2, 9.5, 2021),
+('MCA2382004', 3, 9.5, 2022),
+('MCA2382004', 4, 9.0, 2022);
+
+ 
+
+--Insert into admin 
+INSERT INTO admins (username, email, password) VALUES
+('admin1', 'admin1@futuretech.edu.in', 'password123');
+

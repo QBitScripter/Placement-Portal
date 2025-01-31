@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: #6a0dad;
+    height: 100vh;
+    padding: 20px;
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar:hover {
+    width: 280px;
+}
+
+.logo img {
+    width: 80px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    margin-left: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+    transition: transform 0.2s ease;
+}
+
+.sidebar ul li:hover {
+    transform: translateX(5px);
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #ddd;
+    text-decoration: underline;
+    transform: scale(1.2);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    transition: padding 0.3s ease;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.header h1:hover {
+    color: #6a0dad;
+}
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #6a0dad;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    height: 150px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.welcome-section:hover {
+    background-color: #5a0dab;
+    transform: scale(1.05);
+}
+
+/* Content Section */
+.content-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.content-section:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.date {
+    font-size: 14px;
+    padding-bottom: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .welcome-section {
+        max-width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+}

@@ -1,0 +1,121 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    .main-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+
+        .logo img {
+            height: 100px;
+        }
+
+        .top_buttons {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: #166b98;
+                    font-weight: bold;
+                    padding: 5px 10px;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: #004080;
+                    }
+                }
+            }
+
+            .ham-nav {
+                display: none; 
+            }
+        }
+    }
+}
+
+main {
+    padding: 20px;
+
+    .sitemap {
+        max-width: 800px;
+        margin: 0 auto;
+
+        h1 {
+            color: #166b98;
+            text-align: center;
+        }
+
+        .sitemap-list {
+            list-style: none;
+            padding: 0;
+            margin: 0px;
+            text-align: center;
+
+            li {
+                margin: 0px 0;
+                position: relative;
+                padding: 20px 0;
+
+                &::before, &::after {
+                    content: '';
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    height: 1px;
+                    background-color: #000;
+                }
+
+                &::before {
+                    top: 0;
+                }
+
+                &::after {
+                    bottom: 0;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #333;
+                    font-size: 18px;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: #166b98;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    p {
+        margin: 0;
+        color: #333;
+    }
+}

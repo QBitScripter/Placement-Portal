@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact_us.css">
+    <title>Contact Us</title>
+    <script>
+        window.onload = function() {
+            document.querySelector('.contact-form').reset();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+    <main>
+        <div class="contact-container">
+            <form action="submit_contact.php" method="POST" class="contact-form">
+                <h2>Get in Touch</h2>
+                <label for="name">Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message <span class="required">*</span></label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>If you have any questions, feel free to reach out:</p>
+                <p>Email: <a href="mailto:sayantan.das.mca25@heritageit.edu.in">support@futuretech.edu</a></p>
+                <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p>Address: 123 Future Tech St, Tech City, TC 12345</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Future Institute Of Technology</p>
+    </footer>
+
+    <script>
+    window.addEventListener("pageshow", function(event) {
+        if (event.persisted) { // This checks if the page is loaded from the cache
+            document.querySelector('.contact-form').reset();
+        }
+    });
+</script>
+
+</body>
+</html>
